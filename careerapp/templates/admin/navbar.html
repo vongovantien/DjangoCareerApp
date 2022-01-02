@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+    <a class="navbar-brand" href="#">THỐNG KÊ</a>
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/admin">Trang quản trị</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == '/admin/post-cate/' %}active{% else %} {% endif %}"
+               href="/admin/post-cate">Thống kê số lượng theo danh mục</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == '/admin/post-date/' %}active{% else %} {% endif %}"
+               href="/admin/post-date">Thống kê số lượng bài đăng theo thời điểm</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == '/admin/post-year/' %}active{% else %} {% endif %}"
+               href="/admin/post-year">Thống kê số lượng bài đăng theo năm</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == '/admin/cate-by-year/' %}active{% else %} {% endif %}"
+               href="/admin/cate-by-year">Thống kê số lượng bài đăng hàng năm theo ngành nghề</a>
+        </li>
+    </ul>
+</nav>

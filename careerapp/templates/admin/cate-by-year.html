@@ -1,0 +1,83 @@
+{% extends 'admin/main.html' %}
+
+{% block title %}Thống kê báo cáo{% endblock title%}
+{% block header %}{% endblock header%}
+{% block branding %}
+<h1 class="text-center">Giao diện trang thống kê của hệ thống</h1>
+{% endblock branding %}
+{% block content %}
+<h2 class="text-danger">Thống kê số lượng ứng viên theo năm</h2>
+
+<div class="row">
+    <div class="col-md-6 text-light text-center">
+        <form action="/admin/cate-by-year/" method="post">
+            {% csrf_token %}
+            <div class="mb-3 col-md-5 mx-auto">
+                <input class="form-control" id="year" name="year" placeholder="Nhập năm thống kê" type="text"/>
+            </div>
+            <input class="btn btn-danger mb-3" type="submit">
+        </form>
+        <table class="table table-striped text-center text-primary">
+            <tr>
+                <th>Mã Danh Mục</th>
+                <th>Tên Danh Mục</th>
+                <th>Số Lượng Bài Viết</th>
+            </tr>
+            {% for p in cate_by_year %}
+            <tr>
+                <td>{{ p.id }}</td>
+                <td>{{ p.name }}</td>
+                <td>{{ p.posts }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div class="col-md-6 col-xs-12">
+        <canvas height="100" id="myChart" width="100"></canvas>
+    </div>
+</div>
+
+<script>
+let labels = []
+let data = []
+let colors = []
+let borderColors = []
+let r, g, b;
+
+{% for p in cate_by_year %}
+    labels.push('{{ p.name }}')
+    data.push('{{ p.posts }}')
+
+    r = Math.random()*255
+    g = Math.random()*255
+    b = Math.random()*255
+
+    colors.push(`rgba(${r}, ${g}, ${b}, 0.2)`)
+    borderColors.push(`rgba(${r}, ${g}, ${b}, 1)`)
+{% endfor %}
+
+const ctx = document.getElementById('myChart').getContext('2d');
+const myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: "Thống kê ứng viên nộp hồ sơ theo năm",
+            data: data,
+            backgroundColor: colors,
+            borderColor: borderColors,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+</script>
+{% endblock %}
