@@ -14,6 +14,8 @@ from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+import django_heroku
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
@@ -205,3 +207,4 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
 
 TWILIO_ACCOUNT_SID = 'AC13b086f874a51edca6a6f038d152b4cf'
 TWILIO_AUTH_TOKEN = '3c0c2e54e148847fded2884bbc4263fd'
+django_heroku.settings(locals())
