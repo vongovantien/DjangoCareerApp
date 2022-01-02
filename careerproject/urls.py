@@ -14,5 +14,5 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('careerapp.urls')),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-    path('__debug__/', include(debug_toolbar.urls))
+
 ]
