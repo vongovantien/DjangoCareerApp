@@ -151,7 +151,7 @@ DATABASES = {
         'HOST': 'ec2-3-227-154-49.compute-1.amazonaws.com',
     }
 }
-
+django_heroku.settings(locals(), staticfiles=False)
 AUTH_USER_MODEL = 'careerapp.User'
 
 # Password validation
@@ -215,4 +215,3 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
 
 TWILIO_ACCOUNT_SID = 'AC13b086f874a51edca6a6f038d152b4cf'
 TWILIO_AUTH_TOKEN = '3c0c2e54e148847fded2884bbc4263fd'
-django_heroku.settings(locals())
