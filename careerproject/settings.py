@@ -14,13 +14,13 @@ from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
 import django_heroku
 import mimetypes
 
 mimetypes.add_type("text/css", ".css", True)
-
-django_heroku.settings(locals(), staticfiles=False)
-BASE_DIR = Path(__file__).resolve().parent.parent
+#
+# django_heroku.settings(locals(), staticfiles=False)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-f1h*q2fiqu4_==ju-=vpe)et-v=)alb@e%+s39rg=6-92#kx^8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -86,6 +86,7 @@ OAUTH2_INFO = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
