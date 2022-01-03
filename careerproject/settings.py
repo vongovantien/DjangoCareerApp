@@ -142,14 +142,14 @@ WSGI_APPLICATION = 'careerproject.wsgi.application'
 #         'HOST': '',
 #     }
 # }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'd51no5oofd4mdi',
         'USER': 'oblohmbmylfhac',
-        'PASSWORD': 'a7761e642fe9a0ec34eb4f8ca6e3731cda5e210db0d652d5c5d5be6e351ca125s',
+        'PASSWORD': 'a7761e642fe9a0ec34eb4f8ca6e3731cda5e210db0d652d5c5d5be6e351ca125',
         'HOST': 'ec2-3-227-154-49.compute-1.amazonaws.com',
+        'POST': 5432
     }
 }
 
