@@ -15,6 +15,9 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 import django_heroku
+import mimetypes
+
+mimetypes.add_type("text/css", ".css", True)
 
 django_heroku.settings(locals(), staticfiles=False)
 BASE_DIR = Path(__file__).resolve().parent.parent
