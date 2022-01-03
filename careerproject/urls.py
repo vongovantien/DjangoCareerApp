@@ -10,7 +10,6 @@ admin.site.index_title = "CareerApp"
 
 urlpatterns = [
     path('admin/', admin_site.urls),
-    # path('admin/', admin.site.urls),
     path('accounts/', include('allauth.urls')),
     path('', include('careerapp.urls')),
     path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
